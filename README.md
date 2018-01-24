@@ -61,3 +61,5 @@
 - 支持按电影名称搜索
 - 提供一个API返回一部电影详细信息
 - 支持按电影ID查询
+
+## 团队规范文档：http://alloyteam.github.io/CodeGuide/#js-naming
