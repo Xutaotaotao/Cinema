@@ -1,18 +1,43 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/axios/dist/axios.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <script src="js/main.js"></script>
-    <title>TW-Movie</title>
+    <link rel="stylesheet" href="css/home_page.css">
+    <script src="js/home_page.js"></script>
+    <title>ThoughtWorks_cinema</title>
 </head>
-<body>
 
+<body>
+    <div class="movie-nav" id="movieNav">
+        <div class="container-fluid">
+            <div class="nav-primary">
+                <div class="row">
+                    <div class="nav-log col-md-3">
+                        <h2><a href="index.html">思沃影院</a></h2>
+                    </div>
+                    <div class="nav-search col-md-9">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="searchInput" placeholder="搜索电影">
+                            </div>
+                            <button type="submit" class="btn btn-default">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="movie-body" id="movieBody"></div>
+    <div class="movie-foot" id="movieFoot"></div>
 </body>
+
 </html>

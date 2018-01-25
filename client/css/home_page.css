@@ -1,0 +1,10 @@
+#movieNav{
+	position: relative;
+	background-color: #f0f3f5
+}
+#movieNav .nav-primary{
+	width: 1040px;
+	margin:0 auto;
+	position: relative;
+	padding: 10px 0 5px;
+}
