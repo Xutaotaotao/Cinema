@@ -8,17 +8,56 @@
 	position: relative;
 	padding: 10px 0 5px;
 }
+#movieNav .nav-primary h1{
+	font-size: 32px;
+ }
+#movieNav .nav-primary a:hover{
+	text-decoration: none;
+}
 .nav-search{
 	margin-top: 20px;
     margin-bottom: 10px;
 }
-.form-control{
-	width: 200px;
+.nav-search .form-group{
+	float: left;
+}
+.nav-search button{
+	float: left;
+}
+.form-group input{
+	width: 300px;
 }
 .nav-login-and-register{
 	margin-top: 20px;
     margin-bottom: 10px;
 }
+
+.categories h1{
+	padding-left: 9px;
+	font-size: 26px;
+	font-weight: bold;
+	color: #494949;
+	line-height: 1.1;
+}
+.categories .category-list label{
+	zoom:1;
+	cursor: pointer;
+	padding: 1px 10px;
+	margin: 0 3px 5px 0;
+	font-size: 14px;
+	border-radius: 2px;
+	font-family: Tahoma;
+	vertical-align: middle;
+}
+.categories .category-list label:hover{
+	background: #4b8ccb;
+	color: #ffffff;
+}
+.list-active{
+	background: #4b8ccb;
+	color: #ffffff;
+}
+
 #movieBody{
 	width: 1040px;
 	margin:0 auto;

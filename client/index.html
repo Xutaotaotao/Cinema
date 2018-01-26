@@ -19,18 +19,16 @@
         <div class="container-fluid">
             <div class="nav-primary">
                 <div class="row">
-                    <div class="nav-log col-md-3">
-                        <h2><a href="index.html">思沃影院</a></h2>
+                    <div class="nav-log col-md-2">
+                        <h1><a href="index.html">思沃影院</a></h1>
                     </div>
-                    <div class="nav-search col-md-6">
-                        <form class="form-inline">
+                    <div class="nav-search col-md-7">
                             <div class="form-group">
                                 <input type="text" class="form-control" id="searchInput" placeholder="搜索电影">
                             </div>
                             <button type="submit" class="btn btn-primary">
                                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                             </button>
-                        </form>
                     </div>
                     <div class="nav-login-and-register col-md-3">
                         <button type="button" class="btn btn-primary">登陆</button>
@@ -43,10 +41,12 @@
     <div class="movie-body" id="movieBody">
         <div class="container-fluid">
             <div class="row">
-                <div class="category-list col-md-3"></div>
-                <div class="movie-list col-md-9">
+                <div class="categories col-md-3">
+                    <h1>电影分类</h1>
+                    <div class="category-list" id="movieCategory"></div>
+                </div>
+                <div class="movie col-md-9">
                     <ul id="moviesRow">
-
                     </ul>
                 </div>
             </div>
