@@ -8,3 +8,46 @@
 	position: relative;
 	padding: 10px 0 5px;
 }
+.nav-search{
+	margin-top: 20px;
+    margin-bottom: 10px;
+}
+.form-control{
+	width: 200px;
+}
+.nav-login-and-register{
+	margin-top: 20px;
+    margin-bottom: 10px;
+}
+#movieBody{
+	width: 1040px;
+	margin:0 auto;
+	position: relative;
+	padding: 10px 0 5px;
+}
+#moviesRow{
+	margin: 40px auto;
+	width: auto;
+	height: auto;
+	border: 1px solid #ddd;
+}
+.movie-box{
+	text-align: center;
+	margin: 0 10px;
+	width: 150px;
+	list-style-type: none;
+	float: left;
+	height: 100%;
+}
+.movie-image img{
+	margin-top: 10px;
+	width: 128px;
+	height: 190px;
+}
+.movie-title{
+	text-align: center;
+}
+.movie-rating{
+	font-size: 14px;
+	color: #E9967A;
+}
