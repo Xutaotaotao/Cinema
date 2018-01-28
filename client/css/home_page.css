@@ -45,25 +45,18 @@
 	cursor: pointer;
 	padding: 1px 10px;
 	margin: 0 3px 5px 0;
-	color: #666;
+
 	font-size: 16px;
 	border-radius: 2px;
 	font-family: Tahoma;
 	vertical-align: middle;
 }
-.categories .category-list a:visited{
-	background: #f0f3f5;
-	color: #666;
+.categories .category-list a:hover {
+	background: #4b8ccb;
+	color: #ffffff;
 	text-decoration: none;
 }
-.categories .category-list a:visited,
-.categories .category-list a:hover,
 .categories .category-list a:focus{
-	background: #f0f3f5;
-	color: #666;
-	text-decoration: none;
-}
-.categories .category-list a:active{
 	background: #4b8ccb;
 	color: #ffffff;
 }

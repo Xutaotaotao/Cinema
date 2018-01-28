@@ -18,10 +18,13 @@ function listAllCategoryList(movies) {
 //页面显示分类目录
 function showCategoryHtml(categoryList) {
     let categoryListStr = ``;
-    categoryList.forEach(category => {
-            categoryListStr += `<a>${category}</a>`;
+    for(let i = 0;i<categoryList.length;i++){
+        if(i===0){
+            categoryListStr += `<a class="list-active">${categoryList[i]}</a>`;//初始化选择分类的样式
+        }else{
+            categoryListStr += `<a>${categoryList[i]}</a>`;
         }
-    );
+    }
     let movieCategory = document.getElementById("movieCategory");
     movieCategory.innerHTML +=  categoryListStr;
 
@@ -62,8 +65,10 @@ window.onload = function () {
         .then(function (response) {
             let movies = response.data;
             showCategoryHtml(listAllCategoryList(movies));
-            $("#movieCategory").on("click","a",function (event) {
-                let moviesRow = document.getElementById("moviesRow");
+            let moviesRow = document.getElementById("moviesRow");
+            moviesRow.innerHTML += showMoviesHtml(listCategoryMovies(listAllCategoryList(movies)[0],movies));//初始化剧情的页面
+            $("#movieCategory").on("click","a",function () {
+               $(this).addClass("list-active").siblings().removeClass("list-active");
                if(moviesRow.innerText === ""){
                    moviesRow.innerHTML += showMoviesHtml(listCategoryMovies($(this).text(),movies));
                }else{
