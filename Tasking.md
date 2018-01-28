@@ -16,5 +16,10 @@
 
 *页面显示电影*
 - function showMoviesHtml(movies)
-- input:movies(array)
+- input:movies[array]
 - output:moviesStr[string]
+
+*点击相应分类弹出相应的电影*
+- function clickToChangeMoviesRow(moviesRow,movies)
+- input:moviesRow[string],movies[array]
+- output:dom[string]//直接加入到dom中

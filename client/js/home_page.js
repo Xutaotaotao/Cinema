@@ -30,7 +30,6 @@ function showCategoryHtml(categoryList) {
 
 }
 
-//左侧分类列表的active样式控
 //根据所给分类列出相应的电影
 function listCategoryMovies(category,movies){
     let categoryMovies = [];
@@ -60,6 +59,19 @@ function showMoviesHtml(movies) {
     return moviesStr;
 }
 
+//点击相应分类弹出相应的电影
+function clickToChangeMoviesRow(moviesRow, movies) {
+    $("#movieCategory").on("click", "a", function () {
+        $(this).addClass("list-active").siblings().removeClass("list-active");
+        if (moviesRow.innerText === "") {
+            moviesRow.innerHTML += showMoviesHtml(listCategoryMovies($(this).text(), movies));
+        } else {
+            $("#moviesRow").html("");
+            moviesRow.innerHTML += showMoviesHtml(listCategoryMovies($(this).text(), movies));
+        }
+    });
+}
+
 window.onload = function () {
     axios.get('http://localhost:3000/movies')
         .then(function (response) {
@@ -67,20 +79,11 @@ window.onload = function () {
             showCategoryHtml(listAllCategoryList(movies));
             let moviesRow = document.getElementById("moviesRow");
             moviesRow.innerHTML += showMoviesHtml(listCategoryMovies(listAllCategoryList(movies)[0],movies));//初始化剧情的页面
-            $("#movieCategory").on("click","a",function () {
-               $(this).addClass("list-active").siblings().removeClass("list-active");
-               if(moviesRow.innerText === ""){
-                   moviesRow.innerHTML += showMoviesHtml(listCategoryMovies($(this).text(),movies));
-               }else{
-                   $("#moviesRow").html("");
-                   moviesRow.innerHTML += showMoviesHtml(listCategoryMovies($(this).text(),movies));
-               }
-            });
+            clickToChangeMoviesRow(moviesRow, movies);
         })
         .catch(function (error) {
             console.log(error);
         });
-
 };
 
 
