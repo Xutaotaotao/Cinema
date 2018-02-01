@@ -1,5 +1,0 @@
-{
-  "scripts": {
-    "mock":"json-server db.json --wath --port 3000"
-  }
-}
