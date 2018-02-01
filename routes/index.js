@@ -5,6 +5,7 @@ const classModel = require('../modules/my_class');
 // 首页
 app.get('/', (req, res, next) => {
     let response = res;
+    console.log(response);
     classModel.find({}, (err, result, res) => {
         if(err){
             return console.log(err);
