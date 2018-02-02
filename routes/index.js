@@ -2,6 +2,8 @@ var express = require('express');
 var app = express.Router();
 const classModel = require('../modules/my_class');
 
+//api用于连接到数据库
+var api = require('./api.js');
 // 首页
 app.get('/', (req, res, next) => {
     let response = res;
@@ -98,4 +100,7 @@ app.post('/reach', (req, res, next) => {
         });
     }
 });
+//新增测试接口
+app.get('/api/test',api.test);
+app.post('/api/addtest',api.addtest);
 module.exports = app ;
