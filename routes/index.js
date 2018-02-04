@@ -1,6 +1,8 @@
+
 var express = require('express');
 var app = express.Router();
 const movieModel = require('../modules/my_movies');
+
 
 //将数据接口放在api里面
 app.get('/api/all_movies',function (req,res) {
@@ -14,14 +16,16 @@ app.get('/api/all_movies',function (req,res) {
 });
 
 //查询功能
-app.get('api/search_movies',function (req,res) {
-    let result = null;
-    res.send(result);
-});
+
 app.post('/',function (req,res) {
     let response = res;
     let keyWord = req.body.keyword;
-    console.log(keyWord);
+    movieModel.find({"title": keyWord}, (err, result) => {
+        if(err){
+            return console.log(err);
+        }
+        response.render('search',{result});
+    });
 
 });
 // 首页

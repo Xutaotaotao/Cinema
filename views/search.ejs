@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
+    <script src="../node_modules/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../node_modules/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../stylesheets/home_page.css">
+    <title>ThoughtWorks_cinema</title>
+</head>
+
+<body>
+<div class="movie-nav" id="movieNav">
+    <div class="container-fluid">
+        <div class="nav-primary">
+            <div class="row">
+                <div class="nav-log col-md-2">
+                    <h1><a href="">思沃影院</a></h1>
+                </div>
+                <div class="nav-search col-md-7">
+                    <form method="post">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="searchInput" name="keyword" placeholder="搜索电影">
+                        </div>
+                        <button type="submit" class="btn btn-primary" >
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+                    </form>
+                </div>
+                <div class="nav-login-and-register col-md-3">
+                    <button type="button" class="btn btn-primary">登陆</button>
+                    <button type="button" class="btn btn-primary">注册</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="movie-foot" id="movieFoot"></div>
+</body>
+<script src="../javascripts/search_page.js"></script>
+</html>
