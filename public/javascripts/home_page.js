@@ -72,18 +72,35 @@ function clickToChangeMoviesRow(moviesRow, movies) {
     });
 }
 
-function getDate() {
-    $.get('../../modules/my_class',{},function (data) {
-        console.log('----data', data);
-    });
+function getMoviesData() {
+
+    axios.get('http://localhost:3000/api/all_movies')
+        .then(function (response) {
+           var movies = response.data;
+            console.log(movies);
+        });
+    console.log(movies);
+    return movies;
+
 }
-getDate();
+
+//获取搜索显示数据
+// function displaySearchResult() {
+//     axios.get('http://localhost:3000/api/all_movies')
+//         .then(function (response) {
+//             let movies = response.data;
+//             let inputName = $("#searchInput").val();
+//             let searchResult =  movies.find(function (value) {
+//                 return value.title == inputName;
+//             });
+//             console.log(searchResult);
+//         })
+// }
 
 window.onload = function () {
-    axios.get('../../modules/my_class')
+    axios.get('http://localhost:3000/api/all_movies')//前端用axios获得数据库的数据
         .then(function (response) {
-            let movies = response;
-            console.log(movies);
+            let movies = response.data;
             showCategoryHtml(listAllCategoryList(movies));
             let moviesRow = document.getElementById("moviesRow");
             moviesRow.innerHTML += showMoviesHtml(listCategoryMovies(listAllCategoryList(movies)[0],movies));//初始化剧情的页面

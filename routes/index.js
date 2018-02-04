@@ -1,18 +1,40 @@
 var express = require('express');
 var app = express.Router();
-const classModel = require('../modules/my_class');
+const movieModel = require('../modules/my_movies');
 
-//api用于连接到数据库
-var api = require('./api.js');
-// 首页
-app.get('/', (req, res, next) => {
+//将数据接口放在api里面
+app.get('/api/all_movies',function (req,res) {
     let response = res;
-    console.log(response);
-    classModel.find({}, (err, result, res) => {
+    movieModel.find({}, (err, result, res) => {
         if(err){
             return console.log(err);
         }
-        response.render('index', { result });
+        response.send(result);//将查询到的数据存储到api
+    });
+});
+
+//查询功能
+app.get('api/search_movies',function (req,res) {
+    let result = null;
+    res.send(result);
+});
+app.post('/',function (req,res) {
+    let response = res;
+    let keyWord = req.body.keyword;
+    console.log(keyWord);
+
+});
+// 首页
+
+app.get('/', (req, res, next) => {
+    let response = res;
+    classModel.find({}, (err, result, res) => {
+        console.log(result);
+        if(err){
+            return console.log(err);
+        }
+        // response.render('index', { result });
+        response.json({result});
     });
 });
 // 增加学生信息
@@ -100,7 +122,4 @@ app.post('/reach', (req, res, next) => {
         });
     }
 });
-//新增测试接口
-app.get('/api/test',api.test);
-app.post('/api/addtest',api.addtest);
 module.exports = app ;
