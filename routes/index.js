@@ -20,9 +20,9 @@ app.get('/api/all_movies',function (req,res) {
 app.post('/',function (req,res) {
     let response = res;
     let keyWord = req.body.keyword;
-    movieModel.find({"title": keyWord}, (err, result) => {
+    movieModel.find({"title":{$regex:keyWord}}, (err, result) => {
         if(err){
-            return console.log(err);
+            response.send("抱歉，没有找到相关电影，请重新搜索！")
         }
         response.render('search',{result});
     });

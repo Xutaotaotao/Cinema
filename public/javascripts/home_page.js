@@ -50,7 +50,7 @@ function showMoviesHtml(movies) {
         let rate = Math.round(movie.rating/2);
         moviesStr  += `<li class="movie-box" >
                             <div class="movie-image">
-                                <img src="${movie.image}" alt="${movie.title}">
+                                <a href="${movie.alt}"><img src="${movie.image}" alt="${movie.title}"></a>
                             </div>
                             <div class="movie-title">${movie.title}</div>
                             <div class="movie-rating">${star.slice(5 - rate,10 - rate) + movie.rating}分</div>
@@ -71,31 +71,6 @@ function clickToChangeMoviesRow(moviesRow, movies) {
         }
     });
 }
-
-function getMoviesData() {
-
-    axios.get('http://localhost:3000/api/all_movies')
-        .then(function (response) {
-           var movies = response.data;
-            console.log(movies);
-        });
-    console.log(movies);
-    return movies;
-
-}
-
-//获取搜索显示数据
-// function displaySearchResult() {
-//     axios.get('http://localhost:3000/api/all_movies')
-//         .then(function (response) {
-//             let movies = response.data;
-//             let inputName = $("#searchInput").val();
-//             let searchResult =  movies.find(function (value) {
-//                 return value.title == inputName;
-//             });
-//             console.log(searchResult);
-//         })
-// }
 
 window.onload = function () {
     axios.get('http://localhost:3000/api/all_movies')//前端用axios获得数据库的数据

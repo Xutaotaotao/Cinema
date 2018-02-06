@@ -10,6 +10,10 @@
     <script src="../node_modules/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../node_modules/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../stylesheets/home_page.css">
+    <link rel="stylesheet" href="../stylesheets/search_page.css">
+    <script>
+
+    </script>
     <title>ThoughtWorks_cinema</title>
 </head>
 
@@ -19,7 +23,7 @@
         <div class="nav-primary">
             <div class="row">
                 <div class="nav-log col-md-2">
-                    <h1><a href="">思沃影院</a></h1>
+                    <h1><a href="http://localhost:3000/">思沃影院</a></h1>
                 </div>
                 <div class="nav-search col-md-7">
                     <form method="post">
@@ -39,8 +43,49 @@
         </div>
     </div>
 </div>
-
+<div class="movie-list" id="movieList">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-9">
+                <ul>
+                    <% for(var i = 0; i < result.length; i++) { %>
+                    <div class="list-root row">
+                        <div class="list-img col-md-2">
+                            <div class="list-image">
+                                <a href="<%= result[i].alt %>">
+                                    <img src="<%= result[i].image %>" alt="<%= result[i].title %>">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="list-text col-md-10">
+                            <div class="list-title">
+                                <a href="<%= result[i].alt %>"><%= result[i].title %></a>
+                            </div>
+                            <div class="movie-rating">
+                                    豆瓣评分：<%= result[i].rating %>
+                            </div>
+                            <div class="lsit-year">
+                                年份：<%= result[i].year %>
+                            </div>
+                            <div class="list-genres">
+                                分类：<%= result[i].genres %>
+                            </div>
+                            <div class="list-casts">
+                                演员：<%= result[i].casts %>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="movie-foot" id="movieFoot"></div>
 </body>
+<script>
+
+    console.log('<%= result[0].title %>');
+</script>
 <script src="../javascripts/search_page.js"></script>
 </html>
