@@ -4,7 +4,7 @@ var app = express.Router();
 const movieModel = require('../modules/my_movies');
 
 
-//将数据接口放在api里面
+//将所有数据接口放在api里面
 app.get('/api/all_movies',function (req,res) {
     let response = res;
     movieModel.find({}, (err, result, res) => {
@@ -15,16 +15,58 @@ app.get('/api/all_movies',function (req,res) {
     });
 });
 
-//查询功能
+//将数据接口按电影分类放在api里面
 
+app.get('/api/category_movies',function (req,res) {
+    let response = res;
+    movieModel.find({}, (err, result, res) => {
+        if(err){
+            return console.log(err);
+        }
+        let genres = [];
+        result.forEach(movie => {
+            let movieGenres = movie.genres;
+            let singleGenre = movieGenres.split(',');
+            for(i in singleGenre){
+                if(!genres.includes(singleGenre[i])){
+                    genres.push(singleGenre[i]);
+                }
+            }
+        });
+        response.send(genres);//将查询到的数据存储到api
+    });
+});
+/*app.get('api/category_movies',function (req,res) {
+    let response = res;
+    movieModel.find({},(err,result,res) => {
+        if(err){
+            return console.log(err);
+        }
+        let categoryMovies = [];
+        result.forEach(movie => {
+            let movieGenres = movie.genres.splice(',');
+            for(i in movieGenres){
+                if(!genres.includes(movieGenres[i])){
+                    categoryMovies.push(movieGenres[i]);
+                }
+            }
+        });
+        response.send(categoryMovies);
+    });
+});*/
+
+//按名字查询功能
 app.post('/',function (req,res) {
     let response = res;
     let keyWord = req.body.keyword;
     movieModel.find({"title":{$regex:keyWord}}, (err, result) => {
-        if(err){
-            response.send("抱歉，没有找到相关电影，请重新搜索！")
+        if(result){
+            response.render('search',{result});
+        }else {
+            response.send("亲，建议你重新输入电影名称查询，你查询的电影数据库没有啊!");
         }
-        response.render('search',{result});
+
+
     });
 
 });

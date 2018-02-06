@@ -50,7 +50,7 @@ function showMoviesHtml(movies) {
         let rate = Math.round(movie.rating/2);
         moviesStr  += `<li class="movie-box" >
                             <div class="movie-image">
-                                <a href="${movie.alt}"><img src="${movie.image}" alt="${movie.title}"></a>
+                                <a href=""></a><img src="${movie.image}" alt="${movie.title}">
                             </div>
                             <div class="movie-title">${movie.title}</div>
                             <div class="movie-rating">${star.slice(5 - rate,10 - rate) + movie.rating}分</div>
@@ -70,6 +70,18 @@ function clickToChangeMoviesRow(moviesRow, movies) {
             moviesRow.innerHTML += showMoviesHtml(listCategoryMovies($(this).text(), movies));
         }
     });
+}
+
+function getMoviesData() {
+
+    axios.get('http://localhost:3000/api/all_movies')
+        .then(function (response) {
+           var movies = response.data;
+            console.log(movies);
+        });
+    console.log(movies);
+    return movies;
+
 }
 
 window.onload = function () {
